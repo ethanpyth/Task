@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="viewModel"
-            type="com.xcelk.tasks.TaskViewModel" />
+            name="task"
+            type="com.xcelk.tasks.Task" />
     </data>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -25,16 +25,17 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/task_name"
                 android:textSize="16sp"
+                android:text="@{task.taskName}"
                 android:padding="8dp" />
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="8sp"
+                android:textSize="11sp"
                 android:id="@+id/task_done"
                 android:clickable="true"
-                android:onClick="@={}"
-                android:text="Done?"
+                android:checked="@{task.taskDone}"
+                android:text="@string/task_done"
                 android:focusable="true" />
 
         </LinearLayout>

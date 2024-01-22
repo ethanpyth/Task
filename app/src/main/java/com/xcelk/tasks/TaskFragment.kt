@@ -53,14 +53,14 @@ class TaskFragment : Fragment() {
 
         binding?.lifecycleOwner = viewLifecycleOwner
 
-        val adapter = TaskItemAdapter()
+        var adapter = TaskItemAdapter()
         binding?.taskList?.adapter = adapter
 
-        viewModel.tasks.observe(viewLifecycleOwner, Observer {
+        viewModel.tasks.observe(viewLifecycleOwner) {
             it?.let {
-                adapter.data = it
+                adapter.submitList(it)
             }
-        })
+        }
 
         return view
     }
